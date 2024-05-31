@@ -23,6 +23,8 @@ log.txt
 /platforms
 /plugins
 
+/src/app/environments/*.ts
+
 # Compiled output
 /dist
 /tmp
