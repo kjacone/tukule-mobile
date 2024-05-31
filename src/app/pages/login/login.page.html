@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card class="ion-padding card-container">
+    <div class="login-logo">
+      <img src="assets/logo.jpg" class="logo_icon" alt="foodies" />
+    </div>
+
+    <div style="text-align: center">
+      <p class="login-name">{{'Login' | translate}}</p>
+      <p class="subTitle">
+        {{'Enter your login detail to' | translate}} <br />
+        {{'access your account' | translate}}
+      </p>
+    </div>
+
+    <form #loginForm="ngForm" novalidate>
+      <ion-row>
+        <ion-input label="Email" label-placement="floating" fill="outline" color="warning" [(ngModel)]="login.email"
+          type="email" [placeholder]="('Email' | translate) || '&nbsp;'" name="email" #email="ngModel"
+          spellcheck="false" autocapitalize="off" required>
+        </ion-input>
+      </ion-row>
+<br>
+      <ion-row>
+        <ion-input label="password" label-placement="floating" fill="outline" color="warning"
+          [(ngModel)]="login.password" name="password" [placeholder]="('password' | translate) || '&nbsp;'"
+          type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-row>
+
+      <ion-text color="danger">
+        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+          {{'Password is required' | translate}}
+        </p>
+      </ion-text>
+
+      <ion-row>
+        <ion-col class="ion-no-margin ion-no-padding">
+          <p class="frgTag" (click)="resetPass()">
+            {{'Forgot Password?' | translate}}
+          </p>
+          <ion-button color="warning" expand="block" class="btn_class" (click)="onLogin(loginForm)" type="submit"
+            [disabled]="isLogin">
+            <span *ngIf="!isLogin"> {{'Log In' | translate}}</span>
+            <ion-spinner name="circles" *ngIf="isLogin"></ion-spinner>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+    <p class="createAcc" (click)="register()">
+      {{'Dont have an account?' | translate}}
+      <ion-text color="warning">{{'Sign up' | translate}}</ion-text>
+    </p>
+    <br>
+    <ion-button color="dark" expand="block" fill="outline"  (click)="back()">
+      <ion-icon slot="start" size="large" name="fast-food-outline"></ion-icon>
+      Make Order as Guest</ion-button>
+  </ion-card>
+</ion-content>

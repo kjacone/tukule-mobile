@@ -1,0 +1,36 @@
+.login-logo {
+    text-align: center;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 25%;
+    width: 150px; /* Adjust the width as needed */
+    // height: 150px; /* Adjust the height as needed */
+  }
+  
+  .logo_icon {
+    width: 150%; /* Adjust the width as needed */
+    // height: 150%; /* Adjust the height as needed */
+    border-radius: 25%;
+  }
+
+
+
+  .card-container {
+    margin: 0 auto;
+  
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Adjust these values for different screen sizes if needed */
+  @media (min-width: 768px) {
+    .card-container {
+      /* Maintain fixed width on larger screens */
+      width: 500px;
+      position: absolute;
+    }
+  }
+  

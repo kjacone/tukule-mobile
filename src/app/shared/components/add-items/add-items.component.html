@@ -1,0 +1,120 @@
+<ion-content >
+<ion-card>
+  <ion-card-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="cancel()">
+          <ion-icon name="close-circle-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{ itemData.name }} </ion-title>
+    </ion-toolbar>
+  </ion-card-header>
+  
+ 
+
+  <ion-card-content  >
+    <ion-item lines="none">
+      <img alt="{{itemData.name}}" src="{{ itemData.food_image }}" />
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Description</h2>
+        <p>{{ itemData.description }}</p>
+        <p>{{ itemData.cusine }}</p>
+        <div class="ratting">
+          <ion-icon
+            [name]="itemData.rating >= 1 ? 'star-outline' : 'star'"
+            [color]="itemData.rating >= 1 ? 'warning' : 'medium'"
+          >
+          </ion-icon>
+          <ion-icon
+            [name]="itemData.rating >= 2 ? 'star-outline' : 'star'"
+            [color]="itemData.rating >= 2 ? 'warning' : 'medium'"
+          >
+          </ion-icon>
+          <ion-icon
+            [name]="itemData.rating >= 3 ? 'star-outline' : 'star'"
+            [color]="itemData.rating >= 3 ? 'warning' : 'medium'"
+          >
+          </ion-icon>
+          <ion-icon
+            [name]="itemData.rating >= 4 ? 'star-outline' : 'star'"
+            [color]="itemData.rating >= 4 ? 'warning' : 'medium'"
+          >
+          </ion-icon>
+          <ion-icon
+            [name]="itemData.rating >= 5 ? 'star-outline' : 'star'"
+            [color]="itemData.rating >= 5 ? 'warning' : 'medium'"
+          >
+          </ion-icon>
+          ({{ itemData.rating }} ratings)
+        </div>
+        <div
+          class="flex_div"
+          style="display: flex; flex-direction: row; flex-wrap: wrap"
+        >
+          <ion-badge color="warning"
+            class="ion-margin-end"
+            *ngFor="let item of itemData.tags"
+            >{{ item }}</ion-badge
+          >
+        </div>
+      </ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="itemData.accompaniments.length > 0">
+      <ion-label>
+        <h2> Accompaniments</h2>
+        <ion-list >
+          <ion-radio-group>
+            <ion-item *ngFor="let food of itemData.accompaniments" lines="none">
+              <ion-radio color="warning" [value]="food"> <p style="color: grey">{{ food }}</p></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-label>
+    </ion-item>
+ 
+    <ion-item *ngIf="itemData.extras.length > 0">
+      <ion-label>
+        <h2 >Extras (Optional)</h2>
+        <ion-list >
+          <ion-radio-group>
+            <ion-item *ngFor="let food of itemData.extras" lines="none">
+              <ion-checkbox color="warning" [value]="food.id"> <p style="color: grey">{{ food.name }} {{ food.cost }} Kes</p></ion-checkbox>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-label>
+    </ion-item>
+    <ion-row lines="none">
+      <ion-textarea label="Special Instructions" labelPlacement="floating" fill="outline" color="warning" rows="5"></ion-textarea>
+    </ion-row>
+  </ion-card-content>
+
+
+  
+    <ion-toolbar  color="light">
+      
+      <ion-buttons class="ion-margin-end" >
+        <ion-title color="warning" slot="start">Total: {{ itemData.cost }} KES</ion-title>
+        <ion-button (click)="cancel()">
+          <ion-icon name="remove-outline" slot="icon-only" color="warning" size="large"></ion-icon>
+        </ion-button>
+      
+        <ion-button (click)="cancel()">
+          <ion-icon name="add-outline" slot="icon-only" color="warning" size="large"></ion-icon>
+        </ion-button>
+       
+      </ion-buttons>
+     
+      <ion-button class="ion-margin-end" (click)="cancel()" slot="end" color="warning">
+        <ion-badge class="ion-margin-end" slot="start" color="light">1</ion-badge>
+        Add
+      </ion-button>
+      <!-- <ion-card-subtitle>Price {{itemData.cost}} KES</ion-card-subtitle> -->
+    </ion-toolbar>
+  
+</ion-card>
+</ion-content>

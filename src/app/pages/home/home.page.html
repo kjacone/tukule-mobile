@@ -1,0 +1,31 @@
+<ion-content class="ion-padding" >
+  
+  <ion-card class="ion-padding card-container">
+    <div class="login-logo" style="text-align: center">
+      <img src="assets/logo.jpg" class="logo_icon" alt="tukule foods" style="width: 100%" />
+    </div>
+
+    <div style="text-align: center">
+      Welcome to Tukule Foods!
+
+      <h2>🍔🥗 Hungry? 🍔🥗</h2>
+      <p>
+        Let's Get Started! We're excited to have you here. Whether you're
+        craving a juicy burger, a fresh salad, or a delightful dessert, Tukule
+        Foods has got you covered.
+      </p>
+    </div>
+
+    <div style="text-align: center">
+      <ion-input type="text" [(ngModel)]="restaurantId" name="restaurant_id" label="Restaurant Code" label-placement="floating" fill="outline" placeholder="Restaurant Code" color="warning"></ion-input>
+      <br>
+      <ion-button color="warning" expand="block" (click)="goNext('customer')">
+        <ion-icon slot="start" size="large" name="fast-food-outline"></ion-icon>
+        Make Order as Guest</ion-button>
+        <br>
+      <ion-button color="dark" expand="block" fill="outline"  (click)="goNext('staff')">
+        <ion-icon slot="start" size="large" name="fast-food-outline"></ion-icon>
+        Make Order as Staff</ion-button>
+    </div>
+  </ion-card>
+</ion-content>
