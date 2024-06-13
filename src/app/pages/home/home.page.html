@@ -17,7 +17,14 @@
     </div>
 
     <div style="text-align: center">
-      <ion-input type="text" [(ngModel)]="restaurantId" name="restaurant_id" label="Restaurant Code" label-placement="floating" fill="outline" placeholder="Restaurant Code" color="warning"></ion-input>
+      <!-- <ion-input type="text" [(ngModel)]="restaurantId" name="restaurant_id" label="Restaurant Code" label-placement="floating" fill="outline" placeholder="Restaurant Code" color="warning"></ion-input> -->
+      <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"  [(ngModel)]="restaurantId   "   placeholder="Search Restaurant"  name="search" label="Search Restaurant" label-placement="floating" fill="outline" (ionClear)="cancel()"  ></ion-searchbar>
+
+      <ion-list>
+        <ion-item *ngFor="let result of results">
+          <ion-label  (click)="insert(result)" >{{ result.name }}</ion-label>
+        </ion-item>
+      </ion-list>
       <br>
       <ion-button color="warning" expand="block" (click)="goNext('customer')">
         <ion-icon slot="start" size="large" name="fast-food-outline"></ion-icon>

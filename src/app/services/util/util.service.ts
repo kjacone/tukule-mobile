@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
+import { v4 as uuid } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,10 @@ export class UtilService {
   Call this method to Start your Loader
   */
 
+
+  getUUID() {
+    return uuid();
+  }
   publishAddress(data: any) {
     this.address.next(data);
   }
@@ -272,6 +277,14 @@ export class UtilService {
     }
     return result;
   }
+
+
+  generateOrderNumber() {
+    const paddedNumber = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+    return `ORD-${paddedNumber}`;
+  }
+
+
 
 
 }

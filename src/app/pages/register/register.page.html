@@ -11,8 +11,8 @@
     </div>
     <form #loginForm="ngForm" novalidate>
       <ion-row>
-        <ion-input label="Restaurant Code" label-placement="floating" fill="outline" color="warning" [(ngModel)]="login.restaurant_code"
-          type="text" [placeholder]="'Id Number' || '&nbsp;'" name="rest_code" #rest_code="ngModel"
+        <ion-input disabled="true" label="Restaurant " label-placement="floating" fill="outline" color="warning" [(ngModel)]="restaurantName"
+          type="text" [placeholder]="'Restaurant ' || '&nbsp;'" name="rest_code" #rest_code="ngModel"
           spellcheck="false" autocapitalize="off" required>
         </ion-input>
       </ion-row>
@@ -20,7 +20,7 @@
       <br>
       <ion-row>
         <ion-input label="Full Name" label-placement="floating" fill="outline" color="warning"
-          [(ngModel)]="login.full_name" type="text" [placeholder]="('Full Name' | translate) || '&nbsp;'"
+          [(ngModel)]="login.fullName" type="text" [placeholder]="('Full Name' | translate) || '&nbsp;'"
           name="full_name" #full_name="ngModel" spellcheck="false" autocapitalize="off" required>
         </ion-input>
       </ion-row>
@@ -50,7 +50,7 @@
       </ion-row>
       <br>
       <ion-row>
-        <ion-input label="Id Number" label-placement="floating" fill="outline" color="warning" [(ngModel)]="login.idnumber"
+        <ion-input label="Id Number" label-placement="floating" fill="outline" color="warning" [(ngModel)]="login.idNumber"
           type="text" [placeholder]="'Id Number' || '&nbsp;'" name="idnumber" #idnumber="ngModel"
           spellcheck="false" autocapitalize="off" required>
         </ion-input>
@@ -64,33 +64,7 @@
         </ion-select>
       </ion-row>
       <br>
-      <ion-row>
-        <ion-input label="Password" label-placement="floating" fill="outline" color="warning"
-          [(ngModel)]="login.password" name="password" [placeholder]="('password' | translate) || '&nbsp;'"
-          type="password" #password="ngModel" required>
-        </ion-input>
-      </ion-row>
-      <br>
-      <ion-text color="danger">
-        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
-          {{'Password is required' | translate}}
-        </p>
-
-      </ion-text>
-      <ion-row>
-        <ion-input label="Confirm Password" label-placement="floating" fill="outline" color="warning"
-          [(ngModel)]="login.confirmPassword" name="cpassword"
-          [placeholder]="('Confirm Password' | translate) || '&nbsp;'" type="password" #cpassword="ngModel" required>
-        </ion-input>
-      </ion-row>
-
-      <ion-text color="danger">
-        <p [hidden]="cpassword.valid || submitted == false" class="ion-padding-start">
-          {{'Confirm Password is required' | translate}}
-        </p>
-      </ion-text>
-      <br>
-
+  
       <ion-row class="ion-no-margin ion-no-padding">
         <ion-col class="ion-no-margin ion-no-padding">
           <ion-button color="warning" expand="block" class="btn_class" (click)="onLogin(loginForm)" type="submit"

@@ -1,14 +1,13 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './services/guard';
 
 export const routes: Routes = [
   
-  {
-    path: 'tabs',
-    loadChildren: () => import('./pages/tabs/tabs.routes').then( m => m.tabRoutes)
-  },
+
   {
     path: 'home',
     loadComponent: () => import('./pages/home/home.page').then((m) => m.HomePage),
+    // canActivate: [AuthGuard]
   },
   {
     path: '',
@@ -16,21 +15,24 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'login',
-    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
+    path: 'category',
+    loadComponent: () => import('./pages/category/category.page').then( m => m.CategoryPage),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'cart',
+    loadComponent: () => import('./pages/cart/cart.page').then( m => m.CartPage),
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',
-    loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage)
-  },
-
-  {
-    path: 'category',
-    loadComponent: () => import('./pages/category/category.page').then( m => m.CategoryPage)
+    loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage),
+    // canActivate: [AuthGuard]
   },
   {
     path: 'variations',
-    loadComponent: () => import('./pages/variations/variations.page').then( m => m.VariationsPage)
+    loadComponent: () => import('./pages/variations/variations.page').then( m => m.VariationsPage),
+    canActivate: [AuthGuard]
   }
 
 
